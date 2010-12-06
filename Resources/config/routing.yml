@@ -1,0 +1,15 @@
+page:
+    pattern: /
+    defaults: { _controller: PageBundle:Page:index }
+    
+page_show:
+    pattern: /:url
+    defaults: { _controller: PageBundle:Page:show }
+    
+page_new:
+    pattern: /page/new
+    defaults: { _controller: PageBundle:Page:new }
+
+page_create:
+    pattern: /page/create
+    defaults: { _controller: PageBundle:Page:create }
