@@ -8,6 +8,8 @@ abstract class Page
     protected $name;
     protected $url;
     protected $title;
+    protected $gadgets;
+
     
     public function getId() {
         return $this->id;
@@ -40,4 +42,6 @@ abstract class Page
     public function setTitle($title) {
         $this->title = $title;
     }
+
+
 }

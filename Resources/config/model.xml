@@ -4,6 +4,11 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd">
 
+    <parameters>
+        <parameter key="page.model.page.class">Bundle\PageBundle\Entity\Page</parameter>
+    </parameters>
+
+
     <services>
         <!-- Page Repository Service -->
         <service id="page.repository.page" class="Bundle\PageBundle\PageBundle" factory-method="getRepository" shared="true">

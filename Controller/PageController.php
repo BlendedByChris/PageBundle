@@ -25,7 +25,7 @@ class PageController extends Controller
 //            ->getQuery();
 //        $page = $query->getSingleResult();
 
-        $page = $this->get('page.repostiory.page')->findByUrl($url);
+        $page = $this->get('page.repository.page')->findOneByUrl($url);
 
         return $this->render('PageBundle:Page:show.php', array('page' => $page));
     }
