@@ -16,14 +16,16 @@ class PageController extends Controller
 
     public function showAction($url)
     {
-        $em = $this->get('doctrine.orm.entity_manager');
-        $query = $em->createQueryBuilder()
-            ->select('p')
-            ->from('PageBundle:Page', 'p')
-            ->where('p.url = :url')
-            ->setParameter('url', $url)
-            ->getQuery();
-        $page = $query->getSingleResult();
+//        $em = $this->get('doctrine.orm.entity_manager');
+//        $query = $em->createQueryBuilder()
+//            ->select('p')
+//            ->from('PageBundle:Page', 'p')
+//            ->where('p.url = :url')
+//            ->setParameter('url', $url)
+//            ->getQuery();
+//        $page = $query->getSingleResult();
+
+        $page = $this->get('page.repostiory.page')->findByUrl($url);
 
         return $this->render('PageBundle:Page:show.php', array('page' => $page));
     }
