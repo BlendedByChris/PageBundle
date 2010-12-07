@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="Bundle\PageBundle\Entity\Page">
-        <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="Bundle\PageBundle\Entity\Page" table="page" repository-class="Bundle\PageBundle\Entity\PageRepository">
+
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
@@ -9,10 +13,14 @@
         <field name="title" type="string" column="title"/>
         <field name="url" type="string" column="url"/>
 
-        
         <one-to-many target-entity="Gadget" mapped-by="page" field="gadgets" />
 
 
-        <lifecycle-callbacks/>
-    </entity>
+        <lifecycle-callbacks>
+<!--            <lifecycle-callback type="prePersist" method="generateSlug" />
+            <lifecycle-callback type="preUpdate" method="generateSlug" />-->
+        </lifecycle-callbacks>
+
+    </mapped-superclass>
+
 </doctrine-mapping>

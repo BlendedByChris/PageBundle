@@ -42,6 +42,15 @@ abstract class Page
     public function setTitle($title) {
         $this->title = $title;
     }
+    
+    public function getGadgets() {
+        return $this->gadgets;
+    }
+
+    public function setGadgets($gadgets) {
+        $this->gadgets = $gadgets;
+    }
+
 
 
 }
